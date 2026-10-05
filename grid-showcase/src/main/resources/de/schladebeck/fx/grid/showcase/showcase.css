@@ -1,0 +1,35 @@
+/*
+ * The showcase window. There are more examples than fit into one row of tabs, so buttons above the tab pane wrap
+ * into as many rows as needed, one group per category, and the tab pane's own header is hidden. The source pane
+ * has a button per file in the same style.
+ */
+.tab-pane.examples > .tab-header-area {
+    visibility: hidden;
+    -fx-pref-height: 0;
+    -fx-min-height: 0;
+    -fx-max-height: 0;
+    -fx-padding: 0;
+}
+
+.example-buttons, .source-files {
+    -fx-hgap: 2;
+    -fx-vgap: 4;
+    -fx-padding: 6 8 6 8;
+    -fx-background-color: -fx-background;
+    -fx-border-color: transparent transparent -fx-box-border transparent;
+}
+
+.example-buttons > .toggle-button, .source-files > .toggle-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 6;
+    -fx-padding: 3 10 3 10;
+}
+
+.example-buttons > .toggle-button:hover, .source-files > .toggle-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.07);
+}
+
+.example-buttons > .toggle-button:selected, .source-files > .toggle-button:selected {
+    -fx-background-color: -fx-accent;
+    -fx-text-fill: white;
+}

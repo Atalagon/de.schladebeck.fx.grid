@@ -1,0 +1,59 @@
+/*
+ * Default look of the grid. Every value comes from the Modena theme variables or from the inherited font, so the
+ * grid follows the application: change -fx-base, -fx-control-inner-background, -fx-accent, -fx-focus-color or the
+ * root font and the grid changes with everything else. The CSS reference is in the package documentation.
+ */
+.grid {
+    /* Single parts only: family, size and (for cells) weight come from the font the grid inherits (-fx-font). */
+    -grid-font-style: normal;
+    -grid-header-font-weight: bold;
+
+    -grid-text-fill: -fx-text-inner-color;
+    -grid-cell-background: -fx-control-inner-background;
+    -grid-alternate-cell-background: -fx-control-inner-background-alt;
+    /* A little darker than the cells on light backgrounds, lighter on dark ones, clearly visible on black. */
+    -grid-line-color: ladder(-fx-control-inner-background,
+            #808080 0%, derive(-fx-control-inner-background, 30%) 12%,
+            derive(-fx-control-inner-background, 25%) 49%, derive(-fx-control-inner-background, -12%) 50%);
+    /* Without the keyboard focus a neutral tint; :focused below uses the accent color. */
+    -grid-selection-background: ladder(-fx-control-inner-background,
+            derive(-fx-control-inner-background, 30%) 49%, derive(-fx-control-inner-background, -16%) 50%);
+    -grid-focus-color: -fx-focus-color;
+    -grid-header-background: -fx-base;
+    -grid-header-text-fill: -fx-text-base-color;
+
+    /* Relative to the font size: 24, 28 and 6 pixels at the default size of 12. */
+    -grid-row-height: 2em;
+    -grid-header-height: 2.333333em;
+    -grid-cell-padding: 0.5em;
+
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1;
+    -fx-padding: 1;
+}
+
+/*
+ * With the keyboard focus the selection is a tint of the accent color that keeps -grid-text-fill readable: light
+ * on light backgrounds, dark on dark ones. The painter outlines selected ranges and the focused cell then. The
+ * focus ring is the one TableView has.
+ */
+.grid:focused {
+    -grid-selection-background: ladder(-fx-control-inner-background,
+            derive(-fx-accent, -45%) 49%, derive(-fx-accent, 85%) 50%);
+    -fx-background-color: -fx-faint-focus-color, -fx-focus-color, -fx-control-inner-background;
+    -fx-background-insets: -1.4, -0.3, 1;
+    -fx-background-radius: 2, 0, 0;
+}
+
+/* A frame in the focus color; the text starts where the cell's text does. */
+.grid > .grid-editor {
+    -fx-background-color: -fx-focus-color, -fx-control-inner-background;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 0;
+    -fx-padding: 0 0.5em;
+}
+
+.grid > .grid-editor:invalid {
+    -fx-background-color: #d1242f, -fx-control-inner-background;
+    -fx-background-insets: 0, 2;
+}

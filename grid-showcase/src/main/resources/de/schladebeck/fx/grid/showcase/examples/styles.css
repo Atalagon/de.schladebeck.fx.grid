@@ -1,0 +1,72 @@
+/*
+ * Two looks for many of the examples, switched on with a style class. The showcase adds this stylesheet to its
+ * scene. Every value is one of the grid's CSS properties or a standard JavaFX one. The outer background insets
+ * leave a margin around the grid, so it needs no pane around it to look like a card.
+ */
+
+/* Light: white rows, faint lines, a muted header and room around the text. */
+.grid.modern {
+    -grid-cell-background: #ffffff;
+    -grid-alternate-cell-background: #ffffff;
+    -grid-line-color: #edf1f6;
+    -grid-text-fill: #1e293b;
+    -grid-header-background: #f8fafc;
+    -grid-header-text-fill: #64748b;
+    -grid-selection-background: #eef2ff;
+    -grid-focus-color: #6366f1;
+    -grid-row-height: 3em;
+    -grid-header-height: 2.75em;
+    -grid-cell-padding: 1em;
+    -fx-background-color: #e2e8f0, #ffffff;
+    -fx-background-insets: 10, 11;
+    -fx-background-radius: 10, 9;
+    -fx-padding: 14;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.08), 12, 0, 0, 2);
+}
+
+.grid.modern:focused {
+    -grid-selection-background: #e0e7ff;
+    -fx-background-color: #a5b4fc, #ffffff;
+    -fx-background-insets: 10, 11;
+}
+
+/* Dark: for numbers that change all the time; the scroll bars follow -fx-base. */
+.grid.dark {
+    -grid-cell-background: #0f172a;
+    -grid-alternate-cell-background: #131d33;
+    -grid-line-color: #1e293b;
+    -grid-text-fill: #e2e8f0;
+    -grid-header-background: #0b1222;
+    -grid-header-text-fill: #94a3b8;
+    -grid-selection-background: #1e3a8a;
+    -grid-focus-color: #60a5fa;
+    -grid-row-height: 2.5em;
+    -grid-header-height: 2.5em;
+    -grid-cell-padding: 0.75em;
+    -fx-base: #1e293b;
+    -fx-background-color: #1e293b, #0f172a;
+    -fx-background-insets: 10, 11;
+    -fx-background-radius: 10, 9;
+    -fx-padding: 14;
+}
+
+.grid.dark:focused {
+    -grid-selection-background: #1d4ed8;
+    -fx-background-color: #3b82f6, #0f172a;
+    -fx-background-insets: 10, 11;
+}
+
+/* A split pane between such grids: no frame and an invisible divider; dark behind dark grids. */
+.split-pane.cards {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.split-pane.cards.dark {
+    -fx-background-color: #020617;
+}
+
+.split-pane.cards > .split-pane-divider {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}

@@ -1,0 +1,3 @@
+# Build output. docs/api is generated too, but kept: the README links to it.
+target/
+*.class
