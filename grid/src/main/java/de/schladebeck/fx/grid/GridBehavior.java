@@ -193,7 +193,7 @@ final class GridBehavior {
         }
     }
 
-    /// Whether a canvas point is on the check box [CellRenderers#BOOLEAN] paints in the middle of a cell, give
+    /// Whether a canvas point is on the check box [de.schladebeck.fx.grid.render.CellRenderers#BOOLEAN] paints in the middle of a cell, give
     /// or take a few pixels; a click elsewhere in the cell only selects it.
     private boolean onCheckBox(GridGeometry g, int row, int column, double x, double y) {
         Bounds cell = g.cellBounds(row, column);
